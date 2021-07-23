@@ -60,9 +60,6 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.14.8
-        tf_actions_subcommand: 'apply -auto-approve'
-        tf_actions_working_dir: "./terraform"
+      run: terraform apply -auto-approve
       env:
         TF_VAR_db_password: ${{ secrets.DB_PASS }}
