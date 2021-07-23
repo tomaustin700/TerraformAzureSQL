@@ -22,6 +22,8 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
+data "azurerm_client_config" "current" {}
+
 variable "db_password" {}
 
 resource "azurerm_resource_group" "rg" {
